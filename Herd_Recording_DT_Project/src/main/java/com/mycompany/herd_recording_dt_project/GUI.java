@@ -23,6 +23,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        
+        this.setTitle("Agro Trace");
     }
 
     /**
@@ -38,7 +40,6 @@ public class GUI extends javax.swing.JFrame {
         Parent = new javax.swing.JPanel();
         home = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         newhome = new javax.swing.JPanel();
@@ -52,12 +53,11 @@ public class GUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton5 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         editor = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
@@ -66,7 +66,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,11 +83,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(1, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(1, 0, 0));
-        jLabel1.setText("Agro Trace");
-
         jButton6.setForeground(new java.awt.Color(1, 0, 0));
         jButton6.setText("Quit");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -102,10 +97,6 @@ public class GUI extends javax.swing.JFrame {
         home.setLayout(homeLayout);
         homeLayout.setHorizontalGroup(
             homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(165, 165, 165))
             .addGroup(homeLayout.createSequentialGroup()
                 .addGroup(homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homeLayout.createSequentialGroup()
@@ -114,17 +105,15 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(homeLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel7)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         homeLayout.setVerticalGroup(
             homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -220,24 +209,14 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(60, 63, 65));
         jLabel6.setText("Herd 1");
 
-        jFormattedTextField1.setText("jFormattedTextField1");
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jButton5.setText("SEARCH");
-
-        jButton15.setText("Edit Info");
+        jButton15.setText("Edit data");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
             }
         });
 
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -255,37 +234,42 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setText("Hide Data");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout animalmenuLayout = new javax.swing.GroupLayout(animalmenu);
         animalmenu.setLayout(animalmenuLayout);
         animalmenuLayout.setHorizontalGroup(
             animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(animalmenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton4)
-                .addGap(81, 81, 81)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton15)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(animalmenuLayout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton15)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(258, 258, 258))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27))))
-            .addGroup(animalmenuLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(animalmenuLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addComponent(jButton9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 32, Short.MAX_VALUE)
+                        .addGroup(animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(258, 258, 258))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
+                                .addComponent(jButton9)
+                                .addGap(243, 243, 243))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
+                                .addComponent(jButton10)
+                                .addGap(246, 246, 246))))))
         );
         animalmenuLayout.setVerticalGroup(
             animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,14 +281,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButton15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addGroup(animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9)
+                .addComponent(jButton10)
                 .addGap(9, 9, 9))
         );
 
@@ -339,34 +321,10 @@ public class GUI extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "PRNN", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
+
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -378,7 +336,12 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Clear");
+        jButton11.setText("View Data");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout editorLayout = new javax.swing.GroupLayout(editor);
         editor.setLayout(editorLayout);
@@ -397,13 +360,17 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButton14)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editorLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addGap(18, 28, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(editorLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(editorLayout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(jButton11)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         editorLayout.setVerticalGroup(
             editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,15 +383,13 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addGroup(editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(editorLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(95, 95, 95)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         Parent.add(editor, "card7");
@@ -496,10 +461,6 @@ public class GUI extends javax.swing.JFrame {
         Parent.revalidate();
     }//GEN-LAST:event_jButton15ActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Parent.removeAll();
@@ -510,6 +471,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -519,16 +481,40 @@ public class GUI extends javax.swing.JFrame {
         
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
+            
+            // Retrieve The First Line
+            // Read The First Columns Name From The First Line
+            // Set Columns Names To jtable Inserted Model
+            
             String firstLine = br.readLine().trim();
             String[] columnsName = firstLine.split(",");
             DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             model.setColumnIdentifiers(columnsName);
+            
+            // Get Line From txt File
+            Object[] tableLines = br.lines().toArray();
+            
+            for(int i = 0; i < tableLines.length; i++)
+            {
+                String line = tableLines[i].toString().trim();
+                String[] dataRow = line.split("/");
+                model.addRow(dataRow);
+            }
             
             
         } catch (Exception ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -572,19 +558,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel editor;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
