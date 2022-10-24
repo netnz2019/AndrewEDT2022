@@ -60,8 +60,7 @@ public class GUI extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jButtonImport = new javax.swing.JButton();
         editor = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
@@ -225,22 +224,15 @@ public class GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-
+                "PRNN", "NO.", "Age", "Breed", "BW", "PW", "LW"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton9.setText("View Data");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jButtonImport.setText("View Data");
+        jButtonImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setText("Hide Data");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                jButtonImportActionPerformed(evt);
             }
         });
 
@@ -268,11 +260,8 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                                .addComponent(jButton9)
-                                .addGap(243, 243, 243))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                                .addComponent(jButton10)
-                                .addGap(246, 246, 246))))))
+                                .addComponent(jButtonImport)
+                                .addGap(243, 243, 243))))))
         );
         animalmenuLayout.setVerticalGroup(
             animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,12 +274,10 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(jButton9)
+                .addComponent(jButtonImport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
-                .addGap(9, 9, 9))
+                .addGap(38, 38, 38))
         );
 
         Parent.add(animalmenu, "card4");
@@ -490,74 +477,30 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("specify a file save");
-        int userSelection = fileChooser.showSaveDialog(this);
-        if(userSelection == JFileChooser.APPROVE_OPTION){
-            File fileToSave = fileChooser.getSelectedFile();
-            
-           
-            try {
-                  FileWriter fw = new FileWriter(fileToSave);
-                BufferedWriter bw = new BufferedWriter(fw);
-                for (int i = 0; i < jTableExport.getRowCount(); i++) {
-                    for (int j = 0; j < jTableExport.getColumnCount(); j++) {
-                        
-                        bw.write(jTableExport.getValueAt(i, j).toString()+",");
-                    }
-                    bw.newLine(); //Record per line
-                    
-                }    
-                JOptionPane.showMessageDialog(this, "SUCCESSFULLY","ERROR MESSAGE",JOptionPane.INFORMATION_MESSAGE);
-                bw.close();
-                fw.close();
-            } catch (IOException ex) {
-               JOptionPane.showMessageDialog(this, "ERROR","ERROR MESSAGE",JOptionPane.ERROR_MESSAGE);
-            }
-            
-            
-            
-        }
-        
-        
-    }//GEN-LAST:event_jButtonExportActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-        String filePath = "/Users/andrewermio/Documents/GitHub/AndrewEDT2022/Herd_Recording_DT_Project/src/main/java/com/mycompany/herd_recording_dt_project/cowinfo.txt";
+       
+        String filePath =  "/Users/andrewermio/Documents/GitHub/AndrewEDT2022/Herd_Recording_DT_Project/src/main/java/com/mycompany/herd_recording_dt_project/cowinfo.txt";
         File file = new File(filePath);
-        
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
             
-            // Retrieve The First Line
-            // Read The First Columns Name From The First Line
-            // Set Columns Names To jtable Inserted Model
-            
-            String firstLine = br.readLine().trim();
-            String[] columnsName = firstLine.split(",");
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            model.setColumnIdentifiers(columnsName);
-            
-            // Get Line From txt File
-            Object[] tableLines = br.lines().toArray();
-            
-            for(int i = 0; i < tableLines.length; i++)
-            {
-                String line = tableLines[i].toString().trim();
-                String[] dataRow = line.split("");
-                model.addRow(dataRow);
+            for(int i = 0; i < jTableExport.getRowCount(); i++){
+                for(i = 0; i < jTableExport.getColumnCount(); j++){
+                    bw.write(jTableExports);
+                }
             }
-            
-            
-        } catch (Exception ex) {
+                    
+        } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton9ActionPerformed
+        
+                
+    }//GEN-LAST:event_jButtonExportActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
- 
-    }//GEN-LAST:event_jButton10ActionPerformed
+    private void jButtonImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButtonImportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -601,7 +544,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel editor;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -609,8 +551,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonExport;
+    private javax.swing.JButton jButtonImport;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
