@@ -266,7 +266,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonImport)
-                .addGap(244, 244, 244))
+                .addGap(227, 227, 227))
         );
         animalmenuLayout.setVerticalGroup(
             animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,6 +522,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         }else if(say == JOptionPane.NO_OPTION){
         }
         
