@@ -7,6 +7,7 @@ package com.mycompany.herd_recording_dt_project;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,7 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -59,7 +62,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableImport = new javax.swing.JTable();
         jButtonImport = new javax.swing.JButton();
         editor = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
@@ -69,6 +72,7 @@ public class GUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableExport = new javax.swing.JTable();
         jButtonExport = new javax.swing.JButton();
+        jButtonClearDataEdit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -218,8 +222,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableImport.setForeground(new java.awt.Color(0, 0, 0));
+        jTableImport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -227,7 +231,7 @@ public class GUI extends javax.swing.JFrame {
                 "PRNN", "NO.", "Age", "Breed", "BW", "PW", "LW"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableImport);
 
         jButtonImport.setText("View Data");
         jButtonImport.addActionListener(new java.awt.event.ActionListener() {
@@ -258,10 +262,11 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(258, 258, 258))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
-                                .addComponent(jButtonImport)
-                                .addGap(243, 243, 243))))))
+                                .addGap(27, 27, 27))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, animalmenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonImport)
+                .addGap(244, 244, 244))
         );
         animalmenuLayout.setVerticalGroup(
             animalmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,11 +278,11 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButton15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(jButtonImport)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonImport)
+                .addGap(9, 9, 9))
         );
 
         Parent.add(animalmenu, "card4");
@@ -345,13 +350,28 @@ public class GUI extends javax.swing.JFrame {
             new String [] {
                 "PRNN", "NO.", "Age", "Breed", "BW", "PW", "LW"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTableExport);
 
         jButtonExport.setText("Save Data");
         jButtonExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExportActionPerformed(evt);
+            }
+        });
+
+        jButtonClearDataEdit.setText("Clear Current Data");
+        jButtonClearDataEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearDataEditActionPerformed(evt);
             }
         });
 
@@ -375,10 +395,12 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(0, 28, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(editorLayout.createSequentialGroup()
+                .addGap(182, 182, 182)
                 .addComponent(jButtonExport)
-                .addGap(246, 246, 246))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonClearDataEdit)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         editorLayout.setVerticalGroup(
             editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +416,9 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(editorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonClearDataEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -477,30 +501,84 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
         // TODO add your handling code here:
-       
+        
+        int say = JOptionPane.showConfirmDialog(this, "Data Has Been Saved", "Data Save", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(say == JOptionPane.YES_OPTION){
         String filePath =  "/Users/andrewermio/Documents/GitHub/AndrewEDT2022/Herd_Recording_DT_Project/src/main/java/com/mycompany/herd_recording_dt_project/cowinfo.txt";
-        File file = new File(filePath);
+
         try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            
-            for(int i = 0; i < jTableExport.getRowCount(); i++){
-                for(i = 0; i < jTableExport.getColumnCount(); j++){
-                    bw.write(jTableExports);
+            try (FileWriter fw = new FileWriter(filePath, true); BufferedWriter bw = new BufferedWriter(fw)) {
+                
+                for(int i = 0; i < jTableExport.getRowCount(); i++){
+                    for(int j = 0; j < jTableExport.getColumnCount(); j++){
+                        bw.write(jTableExport.getValueAt(i, j).toString()+" ");
+                    }
+                    bw.newLine();
                 }
+
             }
                     
         } catch (IOException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }else if(say == JOptionPane.NO_OPTION){
+        }
         
-                
     }//GEN-LAST:event_jButtonExportActionPerformed
 
     private void jButtonImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportActionPerformed
         // TODO add your handling code here:
         
+        int reply = JOptionPane.showConfirmDialog(this, "Would You Like to View Data?", "View Data", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(reply == JOptionPane.YES_OPTION){
+        String filePath =  "/Users/andrewermio/Documents/GitHub/AndrewEDT2022/Herd_Recording_DT_Project/src/main/java/com/mycompany/herd_recording_dt_project/cowinfo.txt";
+        File file = new File(filePath);
+        
+        ((DefaultTableModel) jTableImport.getModel()).setRowCount(0);
+        
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            
+            DefaultTableModel model = (DefaultTableModel)jTableImport.getModel(); 
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length; i++){
+                String[] row = lines[i].toString().split(" ");
+                model.addRow(row);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        DefaultTableModel tableModel = getNewModel();
+            DefaultTableModel TableModel = null;
+        }
+        
+        else if(reply == JOptionPane.NO_OPTION){
+            
+        }
+        
     }//GEN-LAST:event_jButtonImportActionPerformed
+
+    private void jButtonClearDataEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearDataEditActionPerformed
+        // TODO add your handling code here:
+        
+        int response = JOptionPane.showConfirmDialog(this, "Do You Want To Continue With This Action?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if(response == JOptionPane.YES_OPTION){
+        Main Main = new Main();
+        try {
+            Main.clearCowData();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else if(response == JOptionPane.NO_OPTION){
+        }
+        
+    }//GEN-LAST:event_jButtonClearDataEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -551,6 +629,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonClearDataEdit;
     private javax.swing.JButton jButtonExport;
     private javax.swing.JButton jButtonImport;
     private javax.swing.JLabel jLabel10;
@@ -564,8 +643,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableExport;
+    private javax.swing.JTable jTableImport;
     private javax.swing.JPanel newhome;
     // End of variables declaration//GEN-END:variables
+
+    private DefaultTableModel getNewModel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
