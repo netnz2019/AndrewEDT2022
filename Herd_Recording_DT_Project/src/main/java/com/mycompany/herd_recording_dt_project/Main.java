@@ -36,6 +36,4 @@ public void clearCowData() throws IOException{
                 }
     }
 
-
-    
 }

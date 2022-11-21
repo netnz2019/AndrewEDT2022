@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.util.Scanner;
 
 /**
  *
@@ -501,7 +502,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
         // TODO add your handling code here:
-        
+  
         int say = JOptionPane.showConfirmDialog(this, "Data Has Been Saved", "Data Save", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if(say == JOptionPane.YES_OPTION){
@@ -525,7 +526,6 @@ public class GUI extends javax.swing.JFrame {
         
         }else if(say == JOptionPane.NO_OPTION){
         }
-        
     }//GEN-LAST:event_jButtonExportActionPerformed
 
     private void jButtonImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportActionPerformed
